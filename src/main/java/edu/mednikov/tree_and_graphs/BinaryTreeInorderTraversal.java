@@ -25,29 +25,13 @@ import java.util.*;
  * Follow up: Recursive solution is trivial, could you do it iteratively?
  */
 public class BinaryTreeInorderTraversal {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> nodes = new ArrayList<>();
-        recursiveInorderTraversal(root, nodes);
-        return nodes;
+//        List<Integer> nodes = new ArrayList<>();
+//        recursiveInorderTraversal(root, nodes);
+//        return nodes;
+
+        return iterativeInorderTraversal(root);
     }
 
     private void recursiveInorderTraversal(TreeNode node, List<Integer> nodes) {
@@ -68,20 +52,20 @@ public class BinaryTreeInorderTraversal {
 
     private List<Integer> iterativeInorderTraversal(TreeNode root) {
         Deque<TreeNode> s = new ArrayDeque<>();
-        s.add(root);
 
         List<Integer> nodes = new ArrayList<>();
-        TreeNode node;
-        while (s.size() > 0) {
-            node = s.peek();
-            while (node.left != null) {
-                node = node.left;
+        TreeNode node = root;
+        while (node != null || s.size() > 0) {
+            while (node != null) {
                 s.push(node);
+                node = node.left;
             }
 
-            nodes
+            node = s.pop();
+            nodes.add(node.val);
 
+            node = node.right;
         }
-
+        return nodes;
     }
 }
