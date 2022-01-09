@@ -1,4 +1,4 @@
 package edu.mednikov.array_and_string;
 
-public class SparsedTableAlgo {
+public class SparseTableAlgorithm {
 }
