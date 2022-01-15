@@ -1,4 +1,4 @@
-package edu.mednikov.tree_and_graphs;
+package edu.mednikov.trees_and_graphs;
 
 
 import java.util.*;
