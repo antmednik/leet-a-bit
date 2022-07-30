@@ -12,7 +12,7 @@ package edu.mednikov.array_and_string;
 public class RotateArray {
 
     public void rotate(int[] nums, int k) {
-        rotateAlternative1(nums, k);
+        rotateElegant(nums, k);
     }
 
     private void rotateWithCycles(int[] nums, int k) {
@@ -62,7 +62,7 @@ public class RotateArray {
         }
     }
 
-    private void rotateAlternative1(int[] nums, int k) {
+    private void rotateElegant(int[] nums, int k) {
         int len = nums.length;
         if(k == 0)
             return ;

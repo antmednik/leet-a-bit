@@ -96,7 +96,9 @@ class LetterBlocks {
      * We can create all permutations of all towers and check if there exists valid permutation
      * */
     private fun naiveSolution(towers: List<String>) {
+        run {
 
+        }
     }
 
     companion object {

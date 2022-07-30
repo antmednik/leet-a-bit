@@ -5,6 +5,8 @@ import java.util.List;
 
 
 /**
+ * <a href="https://leetcode.com/problems/populating-next-right-pointers-in-each-node/">leet code</a>
+ *
  * You are given a perfect binary tree where all leaves are on the same level,
  * and every parent has two children. The binary tree has the following definition:
  *
@@ -40,26 +42,6 @@ import java.util.List;
  */
 public class PopulatingNextRightPointersInEachNode {
 
-    private static class Node {
-        public int val;
-        public Node left;
-        public Node right;
-        public Node next;
-
-        public Node() {}
-
-        public Node(int _val) {
-            val = _val;
-        }
-
-        public Node(int _val, Node _left, Node _right, Node _next) {
-            val = _val;
-            left = _left;
-            right = _right;
-            next = _next;
-        }
-    };
-
     public Node connect(Node root) {
         //recursiveWithExtraSpace(root);
         iterativeWithoutExtraSpace(root);
@@ -67,24 +49,20 @@ public class PopulatingNextRightPointersInEachNode {
     }
 
     private void iterativeWithoutExtraSpace(Node root) {
-        if (root == null) return;;
+        if (root == null) return;
 
         Node current = root;
         while (current.left != null) {
             Node nextLevel = current.left;
-
             while (current != null) {
                 current.left.next = current.right;
-
                 if (current.next == null) {
                     current.right.next = null;
                 } else {
                     current.right.next = current.next.left;
                 }
-
                 current = current.next;
             }
-
             current = nextLevel;
         }
     }
@@ -112,6 +90,23 @@ public class PopulatingNextRightPointersInEachNode {
 
         if (node.right != null) {
             recursiveWithExtraSpace0(node.right, level + 1, leftNeighbours);
+        }
+    }
+
+    private static class Node {
+        public int val;
+        public Node left;
+        public Node right;
+        public Node next;
+        public Node() {}
+        public Node(int _val) {
+            val = _val;
+        }
+        public Node(int _val, Node _left, Node _right, Node _next) {
+            val = _val;
+            left = _left;
+            right = _right;
+            next = _next;
         }
     }
 }
