@@ -1,8 +1,5 @@
 package edu.mednikov.math
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.sym.MOD
-
-
 /**
  * [372. Super Pow](https://leetcode.com/problems/super-pow/description/)
  *
